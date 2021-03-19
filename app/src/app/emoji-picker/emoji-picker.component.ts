@@ -1,6 +1,7 @@
 import { Component, Output, EventEmitter, Input } from '@angular/core';
 import * as emojiJSON from './data/list.json';
 
+
 @Component({
   selector: 'emoji-picker',
   templateUrl: './emoji-picker.component.html',
@@ -27,10 +28,10 @@ export class EmojiPickerComponent {
   }
 
   hidePicker(): void {
-    this.isOpen = false
+    this.isOpen = false;
   }
 
-  emitEmoji(event: MouseEvent, emoji: string): void {
+  emitEmoji(event: MouseEvent | Event, emoji: string): void {
     event.stopImmediatePropagation();
     this.onEmojiAdd.emit(emoji);
   }
