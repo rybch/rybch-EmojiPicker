@@ -1,0 +1,15 @@
+.parent {
+  background: #e2e2e2;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  &_emoji-box {
+    width: max(50vw, 200px);
+    margin: auto;
+    left: 0;
+    right: 0;
+    h2 {
+      text-align: center;
+    }
+  }
+}

@@ -1,1 +1,10 @@
-<emoji-picker></emoji-picker>
+<main class="parent">
+  <div class="parent_emoji-box">
+    <h2>Hi! I am simple and cute emoji-picker!</h2>
+    <p>Added emoji: {{message}}</p>
+    <emoji-picker
+      [width]="'80vw'"
+      (onEmojiAdd)="addEmoji($event)">
+    </emoji-picker>
+  </div>
+</main>

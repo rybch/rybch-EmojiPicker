@@ -1,17 +1,26 @@
-<div class="box">
 
-  <div *ngFor="let category of categories; trackBy: categoryIdentifier" class="box-item">
-    <span class="box-item_title">
-      {{ category.name }}
-    </span>
-    <div
-      [style.grid-template-columns]="'repeat(' + category.cellsNumber + ', 35px)'"
-      class="box-item_category">
-      <p
-        *ngFor="let item of emojiArr[category.name]; trackBy: emojiIdentifier"
-        (click)="emitEmoji($event, item.emoji)">
-        {{ item.emoji }}
-      </p>
+<div class="picker">
+  <i (click)="togglePicker()"> click on me 🙂</i>
+  <div class="box" [class.open]="isOpen" [style.width]="width">
+    <div *ngFor="let category of categories; trackBy: categoryIdentifier" class="box-item">
+      <span class="box-item_title">
+        {{ category.name }}
+      </span>
+      <div
+        [style.grid-template-columns]="'repeat(' + category.cellsNumber + ', 25px)'"
+        class="box-item_category">
+        <p
+          *ngFor="let item of emojiArr[category.name]; trackBy: emojiIdentifier"
+          (click)="emitEmoji($event, item.emoji)">
+          {{ item.emoji }}
+        </p>
+      </div>
     </div>
   </div>
+</div>
+<div
+  class="overlay"
+  [class.active]="isOpen"
+  (click)="hidePicker()"
+  (contextmenu)="hidePicker()">
 </div>
